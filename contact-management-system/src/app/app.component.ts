@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'contact-management-system';
+
+  selectedFeature: string;
+
+  switchView(selectedFeature: string) {
+    if(this.selectedFeature !== selectedFeature) {
+      this.selectedFeature = selectedFeature;
+    }
+  }
 }
