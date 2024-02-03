@@ -6,10 +6,10 @@ export class Document {
     public url: string,
     public children?: Document[]
   ) {
-    this.id = id;
-    this.name = name;
-    this.description = description;
-    this.url = url;
-    this.children = children;
+    // this.id = id;
+    // this.name = name;
+    // this.description = description;
+    // this.url = url;
+    // this.children = children;
   }
 }
