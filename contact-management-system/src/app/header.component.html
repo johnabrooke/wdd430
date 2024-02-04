@@ -19,14 +19,14 @@
           <li><a href="#" (click)="onSelected('Contacts')">Contacts</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li class="dropdown" [ngClass]="{open: isUserDropdownOpen}">
-            <a href="#" (click)="toggleUserDropdown()">User <span class="caret"></span></a>
+           <li class="dropdown" appDropdown> <!--[ngClass]="{open: isUserDropdownOpen}"> -->
+            <a href="#" >User <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Action</a></li>
+              <li><a href="#">Login</a></li>
               <li><a href="#">Another action</a></li>
               <li><a href="#">Something else here</a></li>
               <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li>
+              <li><a href="#">Logout</a></li>
             </ul>
           </li>
         </ul>

@@ -6,12 +6,12 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  isUserDropdownOpen: boolean = false;
+  // isUserDropdownOpen: boolean = false;
   isNavbarCollapsed: boolean = true;
 
-  toggleUserDropdown() {
-    this.isUserDropdownOpen = !this.isUserDropdownOpen;
-  }
+  // toggleUserDropdown() {
+  //   this.isUserDropdownOpen = !this.isUserDropdownOpen;
+  // }
 
   toggleNavbar() {
     this.isNavbarCollapsed = !this.isNavbarCollapsed;
