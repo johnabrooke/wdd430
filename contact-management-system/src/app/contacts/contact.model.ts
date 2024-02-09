@@ -7,11 +7,11 @@ export class Contact {
     public imageUrl: string,
     public group?: Contact[]
   ) {
-    this.id = id;
-    this.name = name;
-    this.email = email;
-    this.phone = phone;
-    this.imageUrl = imageUrl;
-    this.group = group;
+    // this.id = id;
+    // this.name = name;
+    // this.email = email;
+    // this.phone = phone;
+    // this.imageUrl = imageUrl;
+    // this.group = group;
   }
 }
