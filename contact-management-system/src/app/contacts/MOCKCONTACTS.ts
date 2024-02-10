@@ -277,5 +277,15 @@ export const MOCKCONTACTS: Contact[] = [
       group: null
     }
   ]
+  },
+  //my contact
+  //index 18
+  {
+    id: '20',
+    name: 'John Brooke',
+    email: 'johnbrooke@byui.edu',
+    phone: '208-555-5555',
+    imageUrl: '../../assets/images/fredFlintstone.png',
+    group: null
   }
 ];
