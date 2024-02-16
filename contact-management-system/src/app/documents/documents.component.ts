@@ -15,6 +15,6 @@ export class DocumentsComponent {
   ngOnInit(): void {
     this.documentService.documentSelectedEvent.subscribe((document: Document) => {
       this.selectedDocument = document;
-    })
+    });
   }
 }

@@ -8,18 +8,18 @@ import { MOCKDOCUMENTS } from '../MOCKDOCUMENTS';
 export class DocumentService {
   documentSelectedEvent = new EventEmitter<Document>();
 
-  documents: Document[] = [];
+  private documents: Document[] = [];
 
   constructor() { 
     this.documents = MOCKDOCUMENTS;
   }
 
-  getDocuments() {
+  getDocuments(): Document[] {
     return this.documents.slice();
    }
 
    getDocument(id: string): Document {
-    for (const document of this.documents) {
+        for (const document of this.documents) {
       if (document.id == id) {
         return document;
       }
