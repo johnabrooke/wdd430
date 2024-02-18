@@ -14,9 +14,9 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" [ngClass]="{'in': isNavbarCollapsed}">
         <ul class="nav navbar-nav">
-          <li><a href="#" (click)="onSelected('Documents')">Documents</a></li>
-          <li><a href="#" (click)="onSelected('Messages')">Messages</a></li>
-          <li><a href="#" (click)="onSelected('Contacts')">Contacts</a></li>
+          <li routerLinkActive="active"><a routerLink="/documents">Documents</a></li>
+          <li routerLinkActive="active"><a routerLink="/messages">Messages</a></li>
+          <li routerLinkActive="active"><a routerLink="/contacts">Contacts</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
            <li class="dropdown" appDropdown> <!--[ngClass]="{open: isUserDropdownOpen}"> -->

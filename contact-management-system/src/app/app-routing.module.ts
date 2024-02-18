@@ -5,7 +5,7 @@ import { ContactsComponent } from "./contacts/contacts.component";
 import { NgModule } from "@angular/core";
 
 const appRoutes: Routes = [
-    { path: '', redirectTo: '/documents' },
+    { path: '', redirectTo: '/documents', pathMatch: 'full' },
     { path: 'documents', component: DocumentsComponent },
     { path: 'messages', component: MessageListComponent },
     { path: 'contacts', component: ContactsComponent },
