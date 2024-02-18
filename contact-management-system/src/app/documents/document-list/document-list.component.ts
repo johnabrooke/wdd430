@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Document } from '../document.model';
 import { DocumentService } from '../document/document.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-document-list',
@@ -10,7 +11,9 @@ import { DocumentService } from '../document/document.service';
 export class DocumentListComponent implements OnInit {
   documents: Document[] = [];
 
-  constructor(private documentService: DocumentService) {}
+  constructor(private documentService: DocumentService,
+              private router: Router,
+              private route: ActivatedRoute) {}
 
   ngOnInit():void {
     this.documents = this.documentService.getDocuments();

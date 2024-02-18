@@ -8,9 +8,9 @@
   <div class="panel-body">
     <div class="center-panel">
       <app-document-item
-        *ngFor="let document of documents"
+        *ngFor="let document of documents; let i = id"
         [document]="document"
-        (click)="onSelectedDocument(document)"
+        [id]="i"
         ></app-document-item>
     </div>
   </div>
