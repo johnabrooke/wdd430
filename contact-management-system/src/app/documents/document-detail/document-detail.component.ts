@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Document } from '../document.model';
-import { DocumentService } from '../document/document.service';
+import { DocumentService } from '../document.service';
 import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
@@ -13,7 +13,7 @@ export class DocumentDetailComponent {
  id: string;
 
  constructor(private documentService: DocumentService,
-            private route: ActivatedRoute) {}
+             private route: ActivatedRoute) {}
 
   ngOnInit() {
     this.route.params.subscribe(
