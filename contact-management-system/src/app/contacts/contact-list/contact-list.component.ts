@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Contact } from '../contact.model';
-import { ContactService } from '../contact/contact.service';
+import { ContactService } from '../contact.service';
 
 @Component({
   selector: 'app-contact-list',
@@ -14,9 +14,8 @@ export class ContactListComponent implements OnInit {
 
   ngOnInit(): void {
     this.contacts = this.contactService.getContacts();
-  }
-
-  onSelected(contact: Contact) {
-    this.contactService.contactSelectedEvent.emit(contact);
+    this.contactService.contactChangedEvent.subscribe((contacts: Contact[]) => {
+      this.contacts = contacts;
+    });
   }
 }

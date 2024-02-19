@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Document } from '../document.model';
-import { DocumentService } from '../document/document.service';
+import { DocumentService } from '../document.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-document-list',
@@ -12,11 +13,10 @@ export class DocumentListComponent implements OnInit {
 
   constructor(private documentService: DocumentService) {}
 
-  ngOnInit() {
+  ngOnInit():void {
     this.documents = this.documentService.getDocuments();
-  }
-
-  onSelectedDocument(document: Document) {
-    this.documentService.documentSelectedEvent.emit(document);
+    this.documentService.documentChangedEvent.subscribe((documents: Document[]) => {
+      this.documents = documents;
+    });
   }
 } 

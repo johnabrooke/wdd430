@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Document } from './document.model';
-import { DocumentService } from './document/document.service';
+import { DocumentService } from './document.service';
 
 @Component({
   selector: 'app-documents',
@@ -15,6 +15,6 @@ export class DocumentsComponent {
   ngOnInit(): void {
     this.documentService.documentSelectedEvent.subscribe((document: Document) => {
       this.selectedDocument = document;
-    })
+    });
   }
 }

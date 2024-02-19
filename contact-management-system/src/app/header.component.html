@@ -14,19 +14,19 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" [ngClass]="{'in': isNavbarCollapsed}">
         <ul class="nav navbar-nav">
-          <li><a href="#" (click)="onSelected('Documents')">Documents</a></li>
-          <li><a href="#" (click)="onSelected('Messages')">Messages</a></li>
-          <li><a href="#" (click)="onSelected('Contacts')">Contacts</a></li>
+          <li routerLinkActive="active"><a routerLink="/documents">Documents</a></li>
+          <li routerLinkActive="active"><a routerLink="/messages">Messages</a></li>
+          <li routerLinkActive="active"><a routerLink="/contacts">Contacts</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
            <li class="dropdown" appDropdown> <!--[ngClass]="{open: isUserDropdownOpen}"> -->
-            <a href="#" >User <span class="caret"></span></a>
+            <a>User <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Login</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
+              <li><a>Another action</a></li>
+              <li><a>Login</a></li>
+              <li><a>Something else here</a></li>
               <li role="separator" class="divider"></li>
-              <li><a href="#">Logout</a></li>
+              <li><a>Logout</a></li>
             </ul>
           </li>
         </ul>
