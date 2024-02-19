@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Document } from '../document.model';
 import { DocumentService } from '../document.service';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { WindRefService } from '../../wind-ref.service';
 
 @Component({
@@ -16,7 +16,8 @@ export class DocumentDetailComponent {
 
  constructor(private documentService: DocumentService,
              private windowRefService: WindRefService,
-             private route: ActivatedRoute) {
+             private route: ActivatedRoute,
+             private router: Router) {
     this.nativeWindow = windowRefService.getNativeWindow();
   }
 
@@ -33,5 +34,10 @@ export class DocumentDetailComponent {
     if (this.document.url) {
       this.nativeWindow.open(this.document.url);
     }
+  }
+
+  onDelete() {
+    this.documentService.deleteDocument(this.document);
+    this.router.navigate(['../'], {relativeTo: this.route});
   }
 }
