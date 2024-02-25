@@ -4,7 +4,7 @@ import { MOCKDOCUMENTS } from './MOCKDOCUMENTS';
 import { Subject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DocumentService {
   documentListChangedEvent = new Subject<Document[]>();
@@ -12,25 +12,52 @@ export class DocumentService {
   documentChangedEvent = new EventEmitter<Document[]>();
 
   private documents: Document[] = [];
+  private maxDocumentId: number;
+  private documentListClone: Document[] = [];
 
-  constructor() { 
+  constructor() {
     this.documents = MOCKDOCUMENTS;
+    this.maxDocumentId = this.getMaxId();
   }
 
   getDocuments(): Document[] {
     return this.documents.slice();
-   }
+  }
 
-   getDocument(id: string): Document {
-        for (const document of this.documents) {
+  getDocument(id: string): Document {
+    for (const document of this.documents) {
       if (document.id == id) {
         return document;
       }
     }
     return null;
-   }
+  }
 
-   deleteDocument(document: Document) {
+  getMaxId(): number {
+    let maxId: number = 0;
+
+    for (const document of this.documents) {
+      const currentId = +document.id;
+      if (currentId > maxId) {
+        maxId = currentId;
+      }
+    }
+    return maxId;
+  }
+
+  addDocument(newDocument: Document) {
+    if (newDocument == null) {
+      return;
+    }
+
+    this.maxDocumentId++;
+    newDocument.id = this.maxDocumentId.toString();
+    this.documents.push(newDocument);
+    this.documentListClone = this.documents.slice();
+    this.documentChangedEvent.next(this.documentListClone);
+  }
+
+  deleteDocument(document: Document) {
     if (!document) {
       return;
     }
@@ -42,5 +69,5 @@ export class DocumentService {
 
     this.documents.splice(pos, 1);
     this.documentChangedEvent.emit(this.documents.slice());
-   }
+  }
 }
