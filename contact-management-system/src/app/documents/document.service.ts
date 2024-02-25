@@ -46,7 +46,7 @@ export class DocumentService {
   }
 
   addDocument(newDocument: Document) {
-    if (newDocument == null) {
+    if (!newDocument) {
       return;
     }
 
@@ -58,7 +58,7 @@ export class DocumentService {
   }
 
   updateDocument(originalDocument: Document, newDocument: Document) {
-    if (originalDocument || newDocument == null) {
+    if (!originalDocument || !newDocument) {
       return;
     }
 
@@ -84,6 +84,7 @@ export class DocumentService {
     }
 
     this.documents.splice(pos, 1);
-    this.documentChangedEvent.emit(this.documents.slice());
+    this.documentListClone = this.documents.slice();
+    this.documentListChangedEvent.next(this.documentListClone);
   }
 }
