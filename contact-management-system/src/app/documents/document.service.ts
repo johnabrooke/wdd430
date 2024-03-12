@@ -54,7 +54,7 @@ export class DocumentService {
     newDocument.id = this.maxDocumentId.toString();
     this.documents.push(newDocument);
     this.documentListClone = this.documents.slice();
-    this.documentChangedEvent.next(this.documentListClone);
+    this.documentListChangedEvent.next(this.documentListClone);
   }
 
   updateDocument(originalDocument: Document, newDocument: Document) {
@@ -70,7 +70,7 @@ export class DocumentService {
     newDocument.id = originalDocument.id;
     this.documents[pos] = newDocument;
     this.documentListClone = this.documents.slice();
-    this.documentChangedEvent.next(this.documentListClone);
+    this.documentListChangedEvent.next(this.documentListClone);
   }
 
   deleteDocument(document: Document) {
