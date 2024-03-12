@@ -31,15 +31,16 @@
               max="255"
               ngModel
               autocomplete="email"
+              pattern=“[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$”
               [ngModel]="contact?.email"
               required
               #email="ngModel"
               >
           </div>
-          <!-- <div class="alert alert-danger"
+          <div class="alert alert-danger"
                *ngIf="!email.valid && email.touched">
             Please enter a valid Email address.
-          </div> -->
+          </div>
         </div>
   
         <div class="row">
