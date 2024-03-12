@@ -34,7 +34,7 @@
                 }
             },
             "options": {
-                "cwd": "${workspaceFolder}/app/src"
+                "cwd": "${workspaceFolder}contact-management-system/src/app"
             },
             "runOptions": {
                 "runOn": "folderOpen"
