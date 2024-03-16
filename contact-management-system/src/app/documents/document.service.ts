@@ -17,15 +17,21 @@ export class DocumentService {
   private documentListClone: Document[] = [];
 
   constructor(private http: HttpClient) {
-    this.documents = MOCKDOCUMENTS;
-    this.maxDocumentId = this.getMaxId();
+    // this.documents = MOCKDOCUMENTS;
+    // this.maxDocumentId = this.getMaxId();
   }
 
-  getDocuments(): Document[] {
-    return this.http.get<Document[]>('https://contact-management-system-430-default-rtdb.firebaseio.com/documents')
+  ngOnInit() {
+    this.getDocuments();
+  }
+
+  getDocuments() {
+    return this.http.get<any>(
+      'https://contact-management-system-430-default-rtdb.firebaseio.com/documents')
       .subscribe(
-        (documents: Document[]) => {
-          this.documents = documents;
+        (response) => {
+          this.documents = Object.values(response.record);
+          console.log(this.documents);
           this.maxDocumentId = this.getMaxId();
           //sort the list of documents
           this.documents.sort((a, b) => {
