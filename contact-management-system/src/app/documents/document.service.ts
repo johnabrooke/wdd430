@@ -3,6 +3,7 @@ import { Document } from './document.model';
 import { MOCKDOCUMENTS } from './MOCKDOCUMENTS';
 import { Subject } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs-compat';
 
 @Injectable({
   providedIn: 'root',
@@ -27,33 +28,60 @@ export class DocumentService {
 
   getDocuments() {
     return this.http.get<any>(
-      'https://contact-management-system-430-default-rtdb.firebaseio.com/documents')
-      .subscribe(
-        (response) => {
-          this.documents = Object.values(response.record);
-          console.log(this.documents);
-          this.maxDocumentId = this.getMaxId();
-          //sort the list of documents
-          this.documents.sort((a, b) => {
-            // a.name.localeCompare(b.name)
-            const aName = a.name.toLowerCase();
-            const bName = b.name.toLowerCase();
-            if (aName < bName) {
-              return -1;
-            }
-            if (aName > bName) {
-              return 1;
-            }
+      'https://contact-management-system-430-default-rtdb.firebaseio.com/documents.json')
+      // .subscribe(
+      //   (response) => {
+      //     this.documents = Object.values(response.record);
+      //     console.log(this.documents);
+      //     this.maxDocumentId = this.getMaxId();
+      //     //sort the list of documents
+      //     this.documents.sort((a, b) => {
+      //       // a.name.localeCompare(b.name)
+      //       const aName = a.name.toLowerCase();
+      //       const bName = b.name.toLowerCase();
+      //       if (aName < bName) {
+      //         return -1;
+      //       }
+      //       if (aName > bName) {
+      //         return 1;
+      //       }
 
-            return 0;
-          });
-          //emit the next document list change event
-          this.documentChangedEvent.next(this.documents.slice());
-        },
-        (error:any) => {
-          console.log(error);
-        }
-      )
+      //       return 0;
+      //     });
+      //     //emit the next document list change event
+      //     this.documentChangedEvent.next(this.documents.slice());
+      //   },
+      //   (error:any) => {
+      //     console.log(error);
+      //   }
+      // )
+
+      // return this.http.get<Document[]>('https://contact-management-system-430-default-rtdb.firebaseio.com/documents')
+      // .subscribe(
+      //   (documents: Document[]) => {
+      //     this.documents = documents;
+      //     this.maxDocumentId = this.getMaxId();
+      //     //sort the list of documents
+      //     this.documents.sort((a, b) => {
+      //       // a.name.localeCompare(b.name)
+      //       const aName = a.name.toLowerCase();
+      //       const bName = b.name.toLowerCase();
+      //       if (aName < bName) {
+      //         return -1;
+      //       }
+      //       if (aName > bName) {
+      //         return 1;
+      //       }
+
+      //       return 0;
+      //     });
+      //     //emit the next document list change event
+      //     this.documentChangedEvent.next(this.documents.slice());
+      //   },
+      //   (error:any) => {
+      //     console.log(error);
+      //   }
+      // )
   }
 
   getDocument(id: string): Document {
