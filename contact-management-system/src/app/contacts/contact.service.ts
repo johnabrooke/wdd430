@@ -52,8 +52,7 @@ export class ContactService {
     this.maxContactId++;
     newContact.id = this.maxContactId.toString();
     this.contacts.push(newContact);
-    let contactListClone: Contact[] = this.contacts.slice();
-    this.contactChangedEvent.next(contactListClone);
+    this.contactListChangedEvent.next(this.contacts.slice());
   }
 
   updateContact(originalContact: Contact, newContact: Contact) {
@@ -68,8 +67,8 @@ export class ContactService {
 
     newContact.id = originalContact.id;
     this.contacts[pos] = newContact;
-    let contactListClone: Contact[] = this.contacts.slice();
-    this.contactChangedEvent.next(contactListClone);
+    // let contactListClone: Contact[] = this.contacts.slice();
+    this.contactListChangedEvent.next(this.contacts.slice());
   }
 
   deleteContact(contact: Contact) {

@@ -19,6 +19,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { DocumentEditComponent } from './documents/document-edit/document-edit.component';
 import { ContactEditComponent } from './contacts/contact-edit/contact-edit.component';
 import { FormsModule } from '@angular/forms';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ContactsFilterPipe } from './contacts/contacts-filter.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { ContactService } from './contacts/contact.service';
@@ -49,6 +50,7 @@ import { DocumentService } from './documents/document.service';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    DragDropModule
     HttpClientModule,
   ],
   providers: [ContactService, MessageService, DocumentService],

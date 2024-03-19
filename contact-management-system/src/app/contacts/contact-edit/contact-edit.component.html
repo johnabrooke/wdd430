@@ -31,11 +31,11 @@
               max="255"
               ngModel
               autocomplete="email"
-              pattern=“[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$”
               [ngModel]="contact?.email"
               required
-              #email="ngModel"
-              >
+              #email="ngModel">
+              <!-- This is the pattern I was using, but the validation isn't working -->
+              <!-- pattern=“[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$” -->
           </div>
           <div class="alert alert-danger"
                *ngIf="!email.valid && email.touched">
