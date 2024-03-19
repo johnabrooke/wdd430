@@ -59,5 +59,18 @@ export class ContactEditComponent implements OnInit {
     this.router.navigateByUrl('contacts');
   }
 
-  isInvalidContact(newContact: Contact) {}
+  isInvalidContact(newContact: Contact) {
+    if (!newContact) {
+      return true;
+    }
+    if (this.contact && newContact.id === this.contact.id) {
+      return true;
+    }
+    for (let i = 0; i < this.groupContacts.length; i++) {
+      if (newContact.id === this.groupContacts[i].id) {
+        return true;
+      }
+    }
+    return false;
+  }
 }
