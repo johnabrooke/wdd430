@@ -58,4 +58,6 @@ export class ContactEditComponent implements OnInit {
   onCancel() {
     this.router.navigateByUrl('contacts');
   }
+
+  isInvalidContact(newContact: Contact) {}
 }
