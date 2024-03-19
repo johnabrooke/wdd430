@@ -58,29 +58,29 @@ export class DocumentService {
 
       // return this.http.get<Document[]>('https://contact-management-system-430-default-rtdb.firebaseio.com/documents')
       // .subscribe(
-      //   (documents: Document[]) => {
-      //     this.documents = documents;
-      //     this.maxDocumentId = this.getMaxId();
-      //     //sort the list of documents
-      //     this.documents.sort((a, b) => {
-      //       // a.name.localeCompare(b.name)
-      //       const aName = a.name.toLowerCase();
-      //       const bName = b.name.toLowerCase();
-      //       if (aName < bName) {
-      //         return -1;
-      //       }
+        //   (documents: Document[]) => {
+          //     this.documents = documents;
+          //     this.maxDocumentId = this.getMaxId();
+          //     //sort the list of documents
+          //     this.documents.sort((a, b) => {
+            //       // a.name.localeCompare(b.name)
+            //       const aName = a.name.toLowerCase();
+            //       const bName = b.name.toLowerCase();
+            //       if (aName < bName) {
+              //         return -1;
+            //       }
       //       if (aName > bName) {
-      //         return 1;
-      //       }
+              //         return 1;
+            //       }
 
-      //       return 0;
-      //     });
-      //     //emit the next document list change event
-      //     this.documentChangedEvent.next(this.documents.slice());
-      //   },
-      //   (error:any) => {
-      //     console.log(error);
-      //   }
+            //       return 0;
+          //     });
+          //     //emit the next document list change event
+          //     this.documentChangedEvent.next(this.documents.slice());
+        //   },
+        //   (error:any) => {
+          //     console.log(error);
+        //   }
       // )
   }
 
